@@ -1,0 +1,6 @@
+{
+  "name": "uConnect Impact Report",
+  "description": "A single-page impact report and donor portfolio for the uConnect Skill Development Program.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

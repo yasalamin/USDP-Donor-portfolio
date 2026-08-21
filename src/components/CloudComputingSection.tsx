@@ -72,11 +72,11 @@ export function CloudComputingSection() {
           {/* Left Side */}
           <div className="lg:w-1/2 relative z-10">
             <h2 className="text-2xl md:text-3xl font-black text-white tracking-tight mb-3 leading-tight">
-              A First for <br className="hidden md:block" />
+              A Historic First for <br className="hidden md:block" />
               <span className="text-white/90">Gilgit-Baltistan</span>
             </h2>
-            <p className="text-base text-white/90 leading-relaxed mb-5">
-              Launching the region's inaugural <span className="font-bold text-white">Cloud Computing</span> course and <span className="font-bold text-white">Microsoft Azure AI</span> Certification track. We are pioneering advanced tech education in the mountains.
+            <p className="text-sm md:text-base text-white/90 leading-relaxed mb-5">
+              We didn't just launch a course; we built pioneers. We have successfully produced the region's first-ever cohort of <span className="font-bold text-white">Microsoft Certified AI Engineers</span>. Through our advanced Azure AI certification tracks, we are shaping the future of tech education right here in the mountains.
             </p>
           </div>
 

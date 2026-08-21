@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Globe, Linkedin, Code, Megaphone, Palette, Smartphone } from 'lucide-react';
-import { motion } from 'motion/react';
 
 import waheedImage from '../assets/Card.people/waheed.iqbal.jpg';
 import tanveerImage from '../assets/Card.people/tanveer.salman.jpg';
@@ -9,8 +8,6 @@ import maroofImage from '../assets/Card.people/maroof.karim.jpg';
 import kamranImage from '../assets/Card.people/kamran.jan.jpg';
 
 export function GlobalReach() {
-  const [activeIndex, setActiveIndex] = useState(1);
-
   const alumni = [
     {
       role: 'Digital Marketing Executive',
@@ -75,17 +72,14 @@ export function GlobalReach() {
   ];
 
   return (
-    <section id="global-reach" className="py-4 lg:py-6 bg-gray-50 border-t border-gray-100 relative isolate overflow-hidden">
-      {/* UNIQUE BACKGROUND BLOBS & DOTS for Impact Page */}
+    <section id="global-reach" className="py-10 lg:py-14 bg-gray-50 border-t border-gray-100 relative isolate overflow-hidden">
+      {/* BACKGROUND BLOBS & DOTS */}
       <div className="absolute inset-0 z-[-1] pointer-events-none overflow-hidden">
         <svg className="absolute w-full h-full" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
-           {/* Center-Right Large Circular Blob */}
            <circle cx="1100" cy="450" r="400" fill="#E8DFF5" opacity="0.8" />
-           {/* Bottom-Left subtle curve */}
            <path d="M 0,800 C 300,750 500,900 600,900 L 0,900 Z" fill="#E8DFF5" opacity="0.6" />
         </svg>
 
-        {/* Center Left Dots */}
         <svg className="absolute top-[40%] left-[5%] w-32 h-48 opacity-50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="impactDotsLeft" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
@@ -95,7 +89,6 @@ export function GlobalReach() {
           <rect width="100" height="100" fill="url(#impactDotsLeft)" />
         </svg>
 
-        {/* Top Right Dots */}
         <svg className="absolute top-[10%] right-[15%] w-48 h-32 opacity-50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="impactDotsRight" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
@@ -109,11 +102,11 @@ export function GlobalReach() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-4">
-          <div className="inline-flex items-center gap-2 bg-brand text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 mb-2">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 bg-brand text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 mb-3">
             <Globe className="w-3.5 h-3.5" /> Global Reach & Impact
           </div>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-black tracking-tight mb-2 uppercase">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black tracking-tight mb-3 uppercase">
             Graduates Connecting to the <span className="text-brand">World</span>
           </h2>
           <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium max-w-2xl mx-auto">
@@ -121,68 +114,55 @@ export function GlobalReach() {
           </p>
         </div>
 
-        {/* Carousel Grid */}
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-3 pt-6 mb-6 min-h-[300px]">
-          {alumni.map((item, index) => {
-            const isActive = index === activeIndex;
-            const title = item.role;
-            const name = item.name;
-
-            return (
-              <div 
-                key={index} 
-                className={`relative rounded-3xl cursor-pointer flex-shrink-0 w-full transform-gpu transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
-                  isActive 
-                    ? 'bg-brand text-white shadow-2xl scale-100 z-20 pt-10 pb-5 px-5 max-w-[300px] md:w-[300px] lg:w-[320px] xl:w-[340px]' 
-                    : 'bg-brand/10 text-gray-800 shadow-sm scale-95 z-10 pt-8 pb-3 px-4 max-w-[260px] md:w-[240px] lg:w-[260px] xl:w-[280px] hover:bg-brand/20'
-                }`}
-                onClick={() => setActiveIndex(index)}
-              >
-                {/* Overlapping Icon */}
-                <div className={`absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-2 transition-all duration-500 ease-out ${
-                  isActive ? 'bg-white border-brand text-brand' : 'bg-white border-gray-100 text-brand/60'
-                }`}>
-                  <item.icon className="w-5 h-5" />
-                </div>
-
-                <div className="mt-2 text-center flex flex-col h-full">
-                  <h3 className={`text-sm sm:text-base font-black leading-tight mb-0.5 transition-colors duration-500 ${isActive ? 'text-white' : 'text-gray-900'}`}>
-                    {title}
-                  </h3>
-                  <div className="flex items-center justify-center gap-2 mb-3 h-8">
-                    <img src={item.companyLogo} alt={`${item.company} logo`} className="max-w-[110px] max-h-7 w-auto object-contain" />
-                    <img src={item.countryFlag} alt={`${item.company} country flag`} className="w-8 h-5 rounded-sm object-cover shadow-sm" />
-                  </div>
-
-                  <div className="flex flex-col items-center justify-center py-2 sm:py-4 mb-2">
-                    <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-3 border-4 transition-all duration-500 ease-out ${isActive ? 'border-white/20 bg-white/10' : 'border-brand/10 bg-brand/5'} flex items-center justify-center`}>
-                       {item.image ? (
-                         <img src={item.image} alt={name} className="w-full h-full object-cover" />
-                       ) : (
-                         <span className={`text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-colors duration-500 ${isActive ? 'text-white/50' : 'text-brand/40'}`}>
-                           Photo
-                         </span>
-                       )}
-                    </div>
-                    <span className={`text-base sm:text-lg font-black transition-colors duration-500 ${isActive ? 'text-white' : 'text-gray-900'}`}>
-                      {name}
-                    </span>
-                  </div>
-
-                  <div className="mt-auto transition-all duration-500 ease-out h-8 flex items-center justify-center">
-                    {isActive && item.linkedin ? (
-                      <a href={item.linkedin} target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center gap-1.5 w-full py-2 px-4 bg-white text-brand font-black rounded-full hover:bg-gray-50 transition-colors uppercase tracking-widest text-[10px] shadow-md animate-fade-in">
-                        <Linkedin className="w-3.5 h-3.5" />
-                        LinkedIn
-                      </a>
-                    ) : (
-                      <div className="w-full h-8 hidden lg:block"></div>
-                    )}
-                  </div>
-                </div>
+        {/* Responsive Un-Congested 3x2 Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pt-4 pb-4">
+          {alumni.map((item, index) => (
+            <div 
+              key={index} 
+              className="relative rounded-3xl bg-white border border-gray-200/80 p-6 shadow-sm hover:shadow-xl hover:border-brand/40 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group"
+            >
+              {/* Overlapping top badge icon */}
+              <div className="absolute -top-5 left-6 w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center shadow-md border-2 border-white group-hover:scale-110 transition-transform duration-300">
+                <item.icon className="w-5 h-5" />
               </div>
-            );
-          })}
+
+              <div className="pt-2 text-center flex flex-col items-center">
+                {/* Company logo + flag */}
+                <div className="flex items-center justify-center gap-2 mb-3 h-8 w-full">
+                  <img src={item.companyLogo} alt={`${item.company} logo`} className="max-w-[120px] max-h-7 w-auto object-contain" />
+                  <img src={item.countryFlag} alt={`${item.company} country flag`} className="w-7 h-4 rounded-sm object-cover shadow-sm" />
+                </div>
+
+                {/* Role title */}
+                <h3 className="text-sm sm:text-base font-bold text-gray-900 leading-snug mb-1 min-h-[44px] flex items-center justify-center">
+                  {item.role}
+                </h3>
+
+                {/* Photo avatar */}
+                <div className="w-24 h-24 rounded-full overflow-hidden my-3 border-4 border-brand/10 group-hover:border-brand/30 shadow-inner flex items-center justify-center bg-gray-50 transition-colors duration-300">
+                  <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+
+                {/* Name */}
+                <span className="text-base sm:text-lg font-black text-gray-900 mb-4">
+                  {item.name}
+                </span>
+              </div>
+
+              {/* LinkedIn Button */}
+              {item.linkedin && (
+                <a
+                  href={item.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center gap-2 w-full py-2.5 px-4 bg-brand/10 hover:bg-brand text-brand hover:text-white font-bold rounded-full transition-colors duration-200 uppercase tracking-widest text-xs shadow-none hover:shadow-md"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn Profile
+                </a>
+              )}
+            </div>
+          ))}
         </div>
 
       </div>

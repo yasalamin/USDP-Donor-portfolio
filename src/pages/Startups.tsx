@@ -72,10 +72,7 @@ export function Startups() {
       countriesServed: ['North America', 'Europe', 'Australia', 'Pakistan'],
       founders: [
         { name: 'Nadia Iqbal', role: 'CEO & Co-Founder (Technical Lead)', photo: jamila },
-        { name: 'Shaukat Hayat', role: 'COO & Co-Founder (Creative & Ops Lead)', photo: shoaib },
-        { name: 'Kashan Ghori', role: 'Full-Stack Developer', photo: ali_muhammad },
-        { name: 'Saima Dar', role: 'Full-Stack Developer', photo: jamila },
-        { name: 'Lubna Ali', role: 'UI/UX Designer', photo: jamila }
+        { name: 'Shaukat Hayat', role: 'COO & Co-Founder (Creative & Ops Lead)', photo: shoaib }
       ],
       metrics: [
         { label: 'Year Established', value: '2019' },

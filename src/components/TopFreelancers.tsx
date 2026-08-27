@@ -1,12 +1,17 @@
-import React from 'react';
-import { Award, CheckCircle2, Linkedin, Briefcase, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Award, CheckCircle2, Linkedin, Briefcase, Sparkles, MapPin } from 'lucide-react';
 
 export function TopFreelancers() {
+  const [selectedDistrict, setSelectedDistrict] = useState('All Districts');
+
+  const districts = ['All Districts', 'Hunza', 'Ghizer', 'Gilgit', 'Skardu', 'Nager'];
+
   const freelancers = [
     {
       name: 'Salim Ullah',
       title: 'Senior Full-Stack Developer',
       track: 'Web Development & Cloud',
+      district: 'Gilgit',
       badge: 'Top Rated Plus',
       jobSuccess: '100%',
       hoursBilled: '2,500+ hrs',
@@ -18,6 +23,7 @@ export function TopFreelancers() {
       name: 'Khadija Bibi',
       title: 'UI/UX Product Designer',
       track: 'Product & Design Systems',
+      district: 'Hunza',
       badge: 'Top Rated',
       jobSuccess: '100%',
       hoursBilled: '1,800+ hrs',
@@ -29,6 +35,7 @@ export function TopFreelancers() {
       name: 'Sheryar Sher',
       title: 'Cloud & Azure Solutions Specialist',
       track: 'Cloud Architecture & DevOps',
+      district: 'Ghizer',
       badge: 'Top Rated',
       jobSuccess: '99%',
       hoursBilled: '1,200+ hrs',
@@ -40,6 +47,7 @@ export function TopFreelancers() {
       name: 'Alia Hassan',
       title: 'AI Financial & Business Intelligence Analyst',
       track: 'Data & Power BI Analytics',
+      district: 'Skardu',
       badge: 'Top Rated',
       jobSuccess: '100%',
       hoursBilled: '1,500+ hrs',
@@ -51,6 +59,7 @@ export function TopFreelancers() {
       name: 'Asif Ali',
       title: 'Growth Performance & Technical SEO Lead',
       track: 'Digital Marketing & Growth',
+      district: 'Nager',
       badge: 'Top Rated',
       jobSuccess: '100%',
       hoursBilled: '2,000+ hrs',
@@ -62,14 +71,43 @@ export function TopFreelancers() {
       name: 'Misbah Fatima',
       title: 'Mobile Application Engineer',
       track: 'iOS & Android Engineering',
+      district: 'Gilgit',
       badge: 'Top Rated',
       jobSuccess: '100%',
       hoursBilled: '1,600+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Zahra Batool',
+      title: 'E-Commerce & Digital Marketing Lead',
+      track: 'E-Commerce & Marketing',
+      district: 'Hunza',
+      badge: 'Top Rated',
+      jobSuccess: '100%',
+      hoursBilled: '1,400+ hrs',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Kamil Jan',
+      title: 'Backend & Cloud Infrastructure Engineer',
+      track: 'Cloud & System Engineering',
+      district: 'Ghizer',
+      badge: 'Top Rated',
+      jobSuccess: '100%',
+      hoursBilled: '1,900+ hrs',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300'
     }
   ];
+
+  const filteredFreelancers = selectedDistrict === 'All Districts' 
+    ? freelancers 
+    : freelancers.filter((f) => f.district === selectedDistrict);
 
   return (
     <section id="top-freelancers" className="py-10 lg:py-14 bg-white border-t border-gray-100 relative isolate overflow-hidden">
@@ -84,7 +122,7 @@ export function TopFreelancers() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <div className="inline-flex items-center gap-2 bg-brand text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 mb-3 rounded-full shadow-xs">
             <Sparkles className="w-3.5 h-3.5" /> Verified Global Talent
           </div>
@@ -96,9 +134,30 @@ export function TopFreelancers() {
           </p>
         </div>
 
+        {/* District Filter Bar */}
+        <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-10">
+          {districts.map((district) => {
+            const isActive = selectedDistrict === district;
+            return (
+              <button
+                key={district}
+                type="button"
+                onClick={() => setSelectedDistrict(district)}
+                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? 'bg-brand text-white shadow-md scale-105 ring-2 ring-brand/30'
+                    : 'bg-gray-100 text-gray-700 hover:bg-brand/10 hover:text-brand'
+                }`}
+              >
+                {district}
+              </button>
+            );
+          })}
+        </div>
+
         {/* Freelancers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pt-2 pb-4">
-          {freelancers.map((freelancer, index) => (
+          {filteredFreelancers.map((freelancer, index) => (
             <div 
               key={index} 
               className="relative rounded-3xl bg-gray-50/80 border border-gray-200/80 p-6 shadow-sm hover:shadow-xl hover:border-brand/40 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group"
@@ -133,8 +192,11 @@ export function TopFreelancers() {
                       {freelancer.title}
                     </p>
                     <p className="text-[11px] text-gray-500 font-medium flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-brand" />
+                      <span>{freelancer.district}</span>
+                      <span className="text-gray-300 mx-0.5">•</span>
                       <Briefcase className="w-3 h-3 text-gray-400" />
-                      {freelancer.hoursBilled}
+                      <span>{freelancer.hoursBilled}</span>
                     </p>
                   </div>
                 </div>

@@ -105,8 +105,6 @@ export function Startups() {
       countriesServed: ['Germany & Europe', 'North America (USA, Canada)', 'Pakistan', 'Global Digital Marketplace'],
       founders: [
         { name: 'Masroor Ali Khan', role: 'Lead Full-Stack Developer', photo: masroor_ali_khan },
-        { name: 'Saeed Hussain', role: 'Lead Full-Stack Developer', photo: shoaib },
-        { name: 'Zubair Iqbal', role: 'Lead Full-Stack Developer', photo: zubair },
         { name: 'Karishma Sultan', role: 'Lead UX/UI Designer', photo: jamila },
         { name: 'Nouman Karim', role: 'Mobile App & Flutter Flow Developer', photo: naveed },
         { name: 'Waqas Jan', role: 'SEO & Digital Marketing Expert', photo: irfan }

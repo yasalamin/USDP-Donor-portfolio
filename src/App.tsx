@@ -26,6 +26,7 @@ export default function App() {
             <Route path="/impact" element={<Impact />} />
             <Route path="/collaborations" element={<Collaborations />} />
             <Route path="/startups" element={<Startups />} />
+            <Route path="/startups/:startupId" element={<Startups />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>

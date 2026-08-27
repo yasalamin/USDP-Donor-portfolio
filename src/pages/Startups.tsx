@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, X, Rocket, CheckCircle2, TrendingUp, Users, Building2 } from 'lucide-react';
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { ArrowLeft, ExternalLink, Rocket, CheckCircle2, TrendingUp, Users, Building2, ChevronRight, Award } from 'lucide-react';
 
 import alphalogix from '../assets/startups/alphalogix.png';
 import artilect from '../assets/startups/artilect.png';
@@ -29,7 +29,7 @@ type Startup = {
 };
 
 export function Startups() {
-  const [selectedStartup, setSelectedStartup] = useState<Startup | null>(null);
+  const { startupId } = useParams<{ startupId?: string }>();
 
   const startups: Startup[] = [
     {
@@ -44,7 +44,7 @@ export function Startups() {
       metrics: [
         { label: 'Enterprise Clients', value: '15+' },
         { label: 'Team Size', value: '12 Engineers' },
-        { label: 'Growth', value: '200% YOY' }
+        { label: 'Growth Rate', value: '200% YOY' }
       ],
       overview: 'AlphaLogix is a premier software development studio founded by USDP graduates specializing in AI integration, cloud-native web applications, and enterprise digital transformation.',
       journey: 'Following intensive full-stack engineering and cloud architecture training at USDP, the founders teamed up to build AlphaLogix. From securing their first remote client to expanding into enterprise contracts, AlphaLogix now powers digital workflows for clients across Europe and North America.',
@@ -203,6 +203,166 @@ export function Startups() {
     }
   ];
 
+  // Selected startup from route param
+  const activeStartup = startupId ? startups.find((s) => s.id === startupId) : null;
+
+  // -------------------------------------------------------------
+  // FULL WINDOW CASE STUDY VIEW (When /startups/:startupId is active)
+  // -------------------------------------------------------------
+  if (activeStartup) {
+    return (
+      <main className="relative min-h-screen bg-gray-50 py-10 lg:py-16">
+        {/* Background decoration */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden isolate z-0">
+          <svg className="absolute w-full h-full opacity-35" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+            <path d="M 0,0 L 600,0 C 800,300 500,700 0,600 Z" fill="#E8DFF5" />
+            <path d="M 1440,900 L 800,900 C 1000,500 1200,300 1440,400 Z" fill="#E8DFF5" />
+          </svg>
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Breadcrumb Navigation */}
+          <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-gray-500 mb-8 flex-wrap">
+            <Link to="/impact" className="hover:text-brand transition-colors">Impact</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+            <Link to="/startups" className="hover:text-brand transition-colors">Startups</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+            <span className="text-brand font-black">{activeStartup.name} Case Study</span>
+          </div>
+
+          {/* Full Page Case Study Card Container */}
+          <div className="bg-white rounded-3xl border border-gray-200 shadow-lg p-6 sm:p-10 mb-10">
+            
+            {/* Header Hero Section */}
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-gray-100 pb-8 mb-8">
+              <div className="flex items-center gap-5">
+                <div className="flex h-24 w-40 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 p-4 shrink-0 shadow-xs">
+                  <img src={activeStartup.logo} alt={`${activeStartup.name} logo`} className="max-h-14 w-full object-contain" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span className="bg-[#E8DFF5] text-[#574687] border border-[#b7a8d6] text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
+                      {activeStartup.category}
+                    </span>
+                    <span className="text-xs font-bold text-gray-400">• {activeStartup.district} District</span>
+                  </div>
+                  <h1 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+                    {activeStartup.name}
+                  </h1>
+                  <p className="text-xs sm:text-sm font-bold text-brand mt-1">
+                    Founders: <span className="text-gray-700 font-semibold">{activeStartup.founders}</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Top CTA */}
+              {activeStartup.url && (
+                <a
+                  href={activeStartup.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-hover transition-colors shadow-sm shrink-0"
+                >
+                  Visit Official Site
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
+            </div>
+
+            {/* Metrics Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-brand/5 border border-brand/20 rounded-2xl p-5 mb-10">
+              {activeStartup.metrics.map((metric, idx) => (
+                <div key={idx} className="text-center py-2 border-r last:border-0 border-brand/10">
+                  <div className="text-2xl sm:text-3xl font-black text-brand mb-0.5">{metric.value}</div>
+                  <div className="text-xs font-bold text-gray-600 uppercase tracking-wider">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Detailed Case Study Sections */}
+            <div className="space-y-8 text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
+              
+              {/* 1. Overview */}
+              <div className="bg-gray-50/80 p-6 rounded-2xl border border-gray-100">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
+                  <Building2 className="w-4 h-4 text-brand" /> 1. Company Executive Summary
+                </h3>
+                <p className="text-gray-800 leading-relaxed">
+                  {activeStartup.overview}
+                </p>
+              </div>
+
+              {/* 2. Journey */}
+              <div className="bg-gray-50/80 p-6 rounded-2xl border border-gray-100">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4 text-brand" /> 2. The USDP Founding Journey
+                </h3>
+                <p className="text-gray-800 leading-relaxed">
+                  {activeStartup.journey}
+                </p>
+              </div>
+
+              {/* 3. Core Services */}
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-widest text-brand mb-4 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-brand" /> 3. Core Products & Services Delivered
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {activeStartup.services.map((service, i) => (
+                    <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-2xs text-xs sm:text-sm font-bold text-gray-900">
+                      <Award className="w-4 h-4 text-brand shrink-0" />
+                      {service}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 4. Impact */}
+              <div className="bg-gray-50/80 p-6 rounded-2xl border border-gray-100">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
+                  <Users className="w-4 h-4 text-brand" /> 4. Regional & Economic Impact
+                </h3>
+                <p className="text-gray-800 leading-relaxed">
+                  {activeStartup.impact}
+                </p>
+              </div>
+
+            </div>
+
+            {/* Bottom Action Row */}
+            <div className="pt-8 mt-10 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <Link 
+                to="/startups"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-brand transition-colors bg-gray-100 px-5 py-3 rounded-full"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Explore Other Startups
+              </Link>
+              
+              {activeStartup.url && (
+                <a
+                  href={activeStartup.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-hover transition-colors shadow-sm"
+                >
+                  Visit Official Website
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
+            </div>
+
+          </div>
+
+        </div>
+      </main>
+    );
+  }
+
+  // -------------------------------------------------------------
+  // ALL STARTUPS LISTING GRID PAGE (When on /startups)
+  // -------------------------------------------------------------
   return (
     <main className="relative min-h-screen bg-gray-50 py-10 lg:py-16">
       {/* Background decoration */}
@@ -235,17 +395,17 @@ export function Startups() {
             USDP Alumni <span className="text-brand">Startups & Case Studies</span>
           </h1>
           <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
-            Explore the thriving tech ventures, software agencies, and digital consultancies launched by USDP alumni. Tap any card below to read their founding story, market impact, and services.
+            Explore the thriving tech ventures, software agencies, and digital consultancies launched by USDP alumni. Select any startup below to open its complete case study.
           </p>
         </div>
 
         {/* Startups Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {startups.map((startup) => (
-            <div
+            <Link
               key={startup.id}
-              onClick={() => setSelectedStartup(startup)}
-              className="relative rounded-3xl bg-white border border-gray-200 p-6 shadow-sm hover:shadow-xl hover:border-brand/50 transition-all duration-300 transform hover:-translate-y-1.5 cursor-pointer flex flex-col justify-between group"
+              to={`/startups/${startup.id}`}
+              className="relative rounded-3xl bg-white border border-gray-200 p-6 shadow-sm hover:shadow-xl hover:border-brand/50 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group"
             >
               <div>
                 {/* Category Pill */}
@@ -274,141 +434,14 @@ export function Startups() {
 
               {/* Action Button Indicator */}
               <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-brand uppercase tracking-wider">
-                <span>View Case Study</span>
+                <span>Open Full Case Study</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
       </div>
-
-      {/* Case Study Modal */}
-      {selectedStartup && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 sm:p-6 overflow-y-auto"
-          role="presentation"
-          onClick={(e) => { if (e.target === e.currentTarget) setSelectedStartup(null); }}
-        >
-          <div 
-            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl shadow-2xl p-6 sm:p-8 border border-gray-100 animate-fade-in"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-          >
-            {/* Close Button */}
-            <button
-              type="button"
-              onClick={() => setSelectedStartup(null)}
-              className="absolute top-5 right-5 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-brand hover:text-white transition-colors"
-              aria-label="Close modal"
-            >
-              <X className="h-5 w-5" />
-            </button>
-
-            {/* Modal Header */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 border-b border-gray-100 pb-6 mb-6">
-              <div className="flex h-20 w-36 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 p-3 shrink-0">
-                <img src={selectedStartup.logo} alt={`${selectedStartup.name} logo`} className="max-h-12 w-full object-contain" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="bg-[#E8DFF5] text-[#574687] text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase">
-                    {selectedStartup.category}
-                  </span>
-                  <span className="text-xs font-bold text-gray-400">• {selectedStartup.district}</span>
-                </div>
-                <h2 id="modal-title" className="text-2xl sm:text-3xl font-black text-gray-900 leading-tight">
-                  {selectedStartup.name}
-                </h2>
-                <p className="text-xs text-gray-500 font-semibold mt-1">
-                  Founders: <span className="text-gray-900">{selectedStartup.founders}</span>
-                </p>
-              </div>
-            </div>
-
-            {/* Key Metrics Row */}
-            <div className="grid grid-cols-3 gap-3 bg-brand/5 border border-brand/20 rounded-2xl p-4 mb-6">
-              {selectedStartup.metrics.map((metric, idx) => (
-                <div key={idx} className="text-center">
-                  <div className="text-lg sm:text-xl font-black text-brand">{metric.value}</div>
-                  <div className="text-[10px] sm:text-xs font-bold text-gray-600 uppercase tracking-wide">{metric.label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Overview & Journey */}
-            <div className="space-y-6 text-sm text-gray-700 leading-relaxed font-medium mb-6">
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-brand mb-2 flex items-center gap-1.5">
-                  <Building2 className="w-4 h-4" /> Company Overview
-                </h4>
-                <p className="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-gray-800">
-                  {selectedStartup.overview}
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-brand mb-2 flex items-center gap-1.5">
-                  <TrendingUp className="w-4 h-4" /> The Founding Journey
-                </h4>
-                <p className="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-gray-800">
-                  {selectedStartup.journey}
-                </p>
-              </div>
-
-              {/* Services Offered */}
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-brand mb-2 flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4" /> Core Services & Products
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {selectedStartup.services.map((service, i) => (
-                    <div key={i} className="flex items-center gap-2 bg-gray-50 p-3 rounded-xl border border-gray-100 text-xs font-semibold text-gray-800">
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
-                      {service}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Impact */}
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-brand mb-2 flex items-center gap-1.5">
-                  <Users className="w-4 h-4" /> Regional & Economic Impact
-                </h4>
-                <p className="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-gray-800">
-                  {selectedStartup.impact}
-                </p>
-              </div>
-            </div>
-
-            {/* Footer Website Link */}
-            <div className="pt-4 border-t border-gray-100 flex justify-end">
-              {selectedStartup.url ? (
-                <a
-                  href={selectedStartup.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-hover transition-colors shadow-sm"
-                >
-                  Visit Official Website
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => setSelectedStartup(null)}
-                  className="px-6 py-2.5 bg-gray-100 text-gray-700 font-bold text-xs uppercase tracking-widest rounded-full hover:bg-gray-200 transition-colors"
-                >
-                  Close Case Study
-                </button>
-              )}
-            </div>
-
-          </div>
-        </div>
-      )}
     </main>
   );
 }

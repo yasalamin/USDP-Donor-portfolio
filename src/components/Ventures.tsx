@@ -157,7 +157,7 @@ export function Ventures() {
             </div>
             <div className="flex flex-col items-center w-full pt-3 md:pt-0">
               <span className="text-xl md:text-2xl font-black mb-0.5 tracking-tighter">
-                <AnimatedCounter value={1.5} decimals={1} prefix="$" suffix="M+" />
+                <AnimatedCounter value={20} prefix="$" suffix="M+" />
               </span>
               <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-white/80">Remote Foreign Earnings Generated</span>
             </div>

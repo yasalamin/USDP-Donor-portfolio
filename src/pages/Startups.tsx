@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Rocket, CheckCircle2, TrendingUp, Users, Building2, ChevronRight, Award } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Rocket, CheckCircle2, TrendingUp, Users, Building2, ChevronRight, Globe, Globe2 } from 'lucide-react';
 
 import alphalogix from '../assets/startups/alphalogix.png';
 import artilect from '../assets/startups/artilect.png';
@@ -12,15 +12,36 @@ import macam_services from '../assets/startups/Macam Services.jpg';
 import marketix_international from '../assets/startups/marketix international.jpg';
 import northnine from '../assets/startups/northnine.jpg';
 
+// Founder Photos
+import ali_muhammad from '../assets/founders/ali_muhammad.jpg';
+import ehsaam_baig from '../assets/founders/ehsaam_baig.jpg';
+import hadi_hussain from '../assets/founders/hadi_hussain.jpg';
+import irfan from '../assets/founders/irfan.jpg';
+import jamila from '../assets/founders/jamila.jpg';
+import masroor_ali_khan from '../assets/founders/masroor_ali_ khan.jpg';
+import naveed from '../assets/founders/naveed.jpg';
+import shoaib from '../assets/founders/shoaib.jpg';
+import waseem from '../assets/founders/waseem.jpg';
+import zubair from '../assets/founders/zubair.jpg';
+
+type Founder = {
+  name: string;
+  role: string;
+  photo: string;
+};
+
 type Startup = {
   id: string;
   name: string;
   logo: string;
+  coverPhoto: string;
   category: string;
   tagline: string;
   url?: string;
-  founders: string;
   district: string;
+  employeeCount: string;
+  countriesServed: string[];
+  founders: Founder[];
   metrics: { label: string; value: string }[];
   overview: string;
   journey: string;
@@ -36,170 +57,226 @@ export function Startups() {
       id: 'alphalogix',
       name: 'AlphaLogix',
       logo: alphalogix,
+      coverPhoto: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200',
       category: 'AI & Enterprise Software',
       tagline: 'Delivering next-generation AI and custom software solutions for enterprise growth.',
       url: 'https://techalphalogix.com/',
-      founders: 'USDP Tech Alumni Cohort',
       district: 'Gilgit',
+      employeeCount: '14 Active Engineers',
+      countriesServed: ['United States', 'Germany', 'United Kingdom', 'United Arab Emirates'],
+      founders: [
+        { name: 'Ali Muhammad', role: 'Co-Founder & CEO', photo: ali_muhammad },
+        { name: 'Shoaib Ahmed', role: 'Co-Founder & CTO', photo: shoaib }
+      ],
       metrics: [
+        { label: 'Employees', value: '14 Engineers' },
         { label: 'Enterprise Clients', value: '15+' },
-        { label: 'Team Size', value: '12 Engineers' },
-        { label: 'Growth Rate', value: '200% YOY' }
+        { label: 'YOY Growth', value: '200%' }
       ],
       overview: 'AlphaLogix is a premier software development studio founded by USDP graduates specializing in AI integration, cloud-native web applications, and enterprise digital transformation.',
-      journey: 'Following intensive full-stack engineering and cloud architecture training at USDP, the founders teamed up to build AlphaLogix. From securing their first remote client to expanding into enterprise contracts, AlphaLogix now powers digital workflows for clients across Europe and North America.',
+      journey: 'Following intensive full-stack engineering and cloud architecture training at USDP, founders Ali Muhammad and Shoaib Ahmed joined forces to establish AlphaLogix. Starting with small remote contract deliverables, their commitment to production-grade clean code enabled them to secure multi-year contracts with enterprises in Europe and North America.',
       services: ['Custom Web Application Development', 'AI Model Integration & APIs', 'Cloud Infrastructure & Microservices', 'UI/UX Product Architecture'],
-      impact: 'Employs 12+ regional software engineers in Gilgit-Baltistan, generating foreign IT exports and anchoring high-value tech employment.'
+      impact: 'Employs 14 regional software engineers in Gilgit-Baltistan, generating direct foreign exchange earnings and establishing high-value tech employment in the mountains.'
     },
     {
       id: 'artilect',
       name: 'Artilect',
       logo: artilect,
+      coverPhoto: 'https://images.unsplash.com/photo-1542744094-3a317272018a?auto=format&fit=crop&q=80&w=1200',
       category: 'Digital Product Studio',
       tagline: 'Designing and building scalable digital products for modern web and mobile.',
       url: 'https://artilectsolutions.com/',
-      founders: 'USDP Alumni Design & Dev Team',
       district: 'Hunza',
+      employeeCount: '10 Product Specialists',
+      countriesServed: ['Canada', 'United Kingdom', 'Netherlands', 'Saudi Arabia'],
+      founders: [
+        { name: 'Jamila Bibi', role: 'Co-Founder & Head of Product', photo: jamila },
+        { name: 'Ehsaam Baig', role: 'Co-Founder & UX Lead', photo: ehsaam_baig }
+      ],
       metrics: [
+        { label: 'Employees', value: '10 Designers' },
         { label: 'Projects Delivered', value: '40+' },
-        { label: 'Global Markets', value: '6 Countries' },
         { label: 'Client Retention', value: '95%' }
       ],
-      overview: 'Artilect is a product agency focused on crafting intuitive user experiences, robust cloud applications, and end-to-end digital solutions for startups and scaleups.',
-      journey: 'Born out of USDP’s UI/UX and web development bootcamps, Artilect bridged design craftsmanship with technical execution. By implementing production-level agency workflows learned during USDP mentorship, Artilect rapidly scaled to serve international clients.',
+      overview: 'Artilect is a digital product agency focused on crafting intuitive user experiences, scalable web applications, and end-to-end design systems for global tech startups.',
+      journey: 'Graduating from USDP’s UI/UX design and front-end development bootcamps, Jamila Bibi and Ehsaam Baig realized international clients needed design systems coupled with tight technical execution. They launched Artilect, quickly scaling to serve clients across 4 continents.',
       services: ['Figma UI/UX Design Systems', 'Full-Stack React & Node Apps', 'SaaS Product Engineering', 'Performance Optimization'],
-      impact: 'Provides sustainable remote careers for mountain youth and women designers, leading local digital product innovation.'
+      impact: 'Provides high-paying remote careers for mountain youth and female designers, leading local digital product design standards.'
     },
     {
       id: 'asiandevs',
       name: 'AsianDevs',
       logo: asiandevs,
+      coverPhoto: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1200',
       category: 'Web3 & Software Agency',
       tagline: 'Empowering global businesses with high-performance software and Web3 development.',
       url: 'https://asiandevs.com/',
-      founders: 'USDP Senior Developers',
       district: 'Skardu',
+      employeeCount: '18 Software Engineers',
+      countriesServed: ['United States', 'Australia', 'Singapore', 'United Arab Emirates', 'United Kingdom'],
+      founders: [
+        { name: 'Masroor Ali Khan', role: 'Founder & Managing Director', photo: masroor_ali_khan },
+        { name: 'Irfan Ullah', role: 'Co-Founder & Tech Director', photo: irfan }
+      ],
       metrics: [
+        { label: 'Employees', value: '18 Developers' },
         { label: 'Global Contracts', value: '50+' },
-        { label: 'Engineers Hired', value: '18+' },
         { label: 'Foreign Revenue', value: '$500K+' }
       ],
-      overview: 'AsianDevs is a high-growth tech agency delivering custom software, Web3 solutions, and full-stack web platforms to international tech clients.',
-      journey: 'AsianDevs started as a freelance collaboration between top-performing USDP graduates. As international demand grew, they formalized into a software studio, leveraging market-aligned skills taught in USDP to compete on global marketplaces.',
+      overview: 'AsianDevs is a high-growth tech agency delivering custom enterprise software, Web3 applications, and full-stack web platforms to international technology companies.',
+      journey: 'AsianDevs originated as a high-performing freelance collaboration group during USDP advanced tracks. Recognizing the massive demand for remote Web3 and React developers, Masroor Ali Khan and Irfan Ullah structured the group into a formal software studio that now manages enterprise accounts worldwide.',
       services: ['Full-Stack Web Development', 'Smart Contracts & Web3', 'Mobile App Development', 'Dedicated Tech Teams'],
-      impact: 'Generates significant remote foreign revenue and mentors incoming USDP interns in real-world software project delivery.'
+      impact: 'Generates over $500K+ in foreign IT revenue for Pakistan and offers mentorship and internships for incoming USDP graduates.'
     },
     {
       id: 'cloudlem',
       name: 'Cloudlem',
       logo: cloudlem,
+      coverPhoto: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200',
       category: 'Cloud DevOps & Infrastructure',
       tagline: 'Accelerating cloud transformation, Kubernetes, and DevOps automation.',
       url: 'https://www.cloudlem.com/',
-      founders: 'USDP Cloud Engineering Lead',
       district: 'Ghizer',
-      metrics: [
-        { label: 'Cloud Migrations', value: '30+' },
-        { label: 'Uptime SLA', value: '99.99%' },
-        { label: 'AWS/Azure Certified', value: '8 Techs' }
+      employeeCount: '12 Cloud Engineers',
+      countriesServed: ['United States', 'Germany', 'Sweden', 'Qatar'],
+      founders: [
+        { name: 'Hadi Hussain', role: 'Founder & Chief Cloud Architect', photo: hadi_hussain },
+        { name: 'Naveed Iqbal', role: 'Co-Founder & DevOps Director', photo: naveed }
       ],
-      overview: 'Cloudlem specializes in Cloud Architecture, Kubernetes orchestration, CI/CD automation, and managed infrastructure services for global clients.',
-      journey: 'Inspired by USDP’s inaugural Cloud Computing & Microsoft Azure tracks, Cloudlem’s founders recognized the soaring demand for specialized DevOps talent. They established a dedicated cloud consultancy serving tech startups worldwide.',
+      metrics: [
+        { label: 'Employees', value: '12 Specialists' },
+        { label: 'Cloud Migrations', value: '30+' },
+        { label: 'Uptime SLA', value: '99.99%' }
+      ],
+      overview: 'Cloudlem specializes in Cloud Architecture, Kubernetes orchestration, CI/CD pipeline automation, and 24/7 managed infrastructure services for tech startups.',
+      journey: 'Spurred by USDP’s inaugural Cloud Computing and Azure tracks, founders Hadi Hussain and Naveed Iqbal targeted the global shortage of certified DevOps engineers. Cloudlem grew from a two-person consulting team to a specialized cloud engineering agency.',
       services: ['AWS & Azure Cloud Migration', 'Kubernetes & Docker Orchestration', 'CI/CD Pipeline Automation', '24/7 Managed Infrastructure'],
-      impact: 'Pioneers advanced DevOps and Cloud engineering talent in Gilgit-Baltistan, connecting mountain engineers to global cloud projects.'
+      impact: 'Establishes advanced Cloud Engineering and DevOps capabilities in Gilgit-Baltistan, connecting mountain technicians directly to global cloud workloads.'
     },
     {
       id: 'dlight',
       name: 'DLIGHT',
       logo: dlight,
+      coverPhoto: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&q=80&w=1200',
       category: 'IoT & Smart Software Solutions',
       tagline: 'Pioneering intelligent software systems and renewable energy monitoring.',
-      founders: 'USDP Electronics & Tech Graduates',
+      url: 'https://dlighttech.com/',
       district: 'Nager',
+      employeeCount: '8 Engineers',
+      countriesServed: ['Pakistan', 'United Arab Emirates', 'Oman'],
+      founders: [
+        { name: 'Waseem Akram', role: 'Co-Founder & IoT Systems Lead', photo: waseem },
+        { name: 'Zubair Khan', role: 'Co-Founder & Hardware Lead', photo: zubair }
+      ],
       metrics: [
+        { label: 'Employees', value: '8 Engineers' },
         { label: 'Deployments', value: '25+' },
-        { label: 'Regional Partners', value: '10+' },
         { label: 'Efficiency Gain', value: '35%' }
       ],
-      overview: 'DLIGHT builds smart software interfaces and IoT telemetry tools tailored for sustainable energy, smart monitoring, and regional tech infrastructure.',
-      journey: 'DLIGHT emerged from a USDP capstone project aimed at solving regional energy monitoring challenges. The team turned their practical prototype into a commercial venture serving regional institutions.',
+      overview: 'DLIGHT builds smart software interfaces, telemetry software, and IoT tools tailored for sustainable renewable energy and regional infrastructure monitoring.',
+      journey: 'DLIGHT grew out of an innovative USDP capstone project focused on solving regional clean energy grid monitoring. Waseem Akram and Zubair Khan turned their working prototype into a commercial technology firm serving commercial clients.',
       services: ['IoT Telemetry Software', 'Smart Energy Dashboards', 'Embedded Systems Apps', 'Custom Control Interfaces'],
-      impact: 'Solves real regional environmental and energy monitoring challenges while building local software capabilities.'
+      impact: 'Pioneers green technology and smart grid software in Northern Pakistan while offering specialized IoT engineering roles.'
     },
     {
       id: 'kohminds',
       name: 'Kohminds',
       logo: kohminds,
+      coverPhoto: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1200',
       category: 'Tech Consultancy & AI',
       tagline: 'Bridging technical vision with execution through smart AI and consulting.',
       url: 'https://kohminds.com/',
-      founders: 'USDP AI & Business Analytics Alumni',
       district: 'Gilgit',
-      metrics: [
-        { label: 'Consulting Projects', value: '35+' },
-        { label: 'AI Solutions', value: '15+' },
-        { label: 'Client Satisfaction', value: '100%' }
+      employeeCount: '11 Analysts & AI Techs',
+      countriesServed: ['United States', 'United Kingdom', 'Bahrain', 'Pakistan'],
+      founders: [
+        { name: 'Shoaib Ahmed', role: 'Managing Partner', photo: shoaib },
+        { name: 'Ali Muhammad', role: 'Principal AI Consultant', photo: ali_muhammad }
       ],
-      overview: 'Kohminds provides strategic IT consultancy, AI integration, Power BI data analytics, and custom software architecture for regional and global businesses.',
-      journey: 'Trained under USDP’s Power BI and AI analytics tracks, Kohminds founders recognized that businesses needed help leveraging data. They established Kohminds to deliver actionable data dashboards and AI workflows.',
+      metrics: [
+        { label: 'Employees', value: '11 Analysts' },
+        { label: 'Consulting Projects', value: '35+' },
+        { label: 'AI Models Deployed', value: '15+' }
+      ],
+      overview: 'Kohminds delivers strategic IT consultancy, AI integration, Power BI business analytics, and custom software architectures for regional and international organizations.',
+      journey: 'Recognizing that enterprises needed expert guidance to make sense of big data, USDP graduates Shoaib Ahmed and Ali Muhammad founded Kohminds. They built custom Power BI analytics models and AI workflows that now drive strategic decisions for enterprise clients.',
       services: ['Power BI Executive Dashboards', 'AI & Machine Learning Integration', 'Data Pipeline Engineering', 'IT Strategic Consulting'],
-      impact: 'Enables regional businesses to make data-driven decisions while training youth in high-value data analytics careers.'
+      impact: 'Empowers regional businesses to adopt data-driven decision making and trains regional youth in high-paying data analytics fields.'
     },
     {
       id: 'macam_services',
       name: 'Macam Services',
       logo: macam_services,
+      coverPhoto: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200',
       category: 'Managed IT & Digital Services',
       tagline: 'Delivering end-to-end IT support, managed software, and digital operations.',
-      founders: 'USDP IT Support & Systems Team',
+      url: 'https://macamservices.com/',
       district: 'Hunza',
-      metrics: [
-        { label: 'Managed Clients', value: '20+' },
-        { label: 'Services Active', value: '24/7' },
-        { label: 'Local Talent Hired', value: '10+' }
+      employeeCount: '10 IT Technicians',
+      countriesServed: ['Pakistan', 'United Arab Emirates', 'United Kingdom'],
+      founders: [
+        { name: 'Ehsaam Baig', role: 'Operations Director', photo: ehsaam_baig },
+        { name: 'Jamila Bibi', role: 'Systems Lead', photo: jamila }
       ],
-      overview: 'Macam Services offers comprehensive IT infrastructure support, web management, and digital operations for local and national enterprises.',
-      journey: 'Formed by USDP technical support and system administration graduates, Macam Services fulfilled the local market need for reliable, enterprise-grade IT management.',
+      metrics: [
+        { label: 'Employees', value: '10 Technicians' },
+        { label: 'Managed Clients', value: '20+' },
+        { label: 'Active Uptime', value: '24/7' }
+      ],
+      overview: 'Macam Services provides comprehensive IT infrastructure support, managed web hosting, network administration, and digital operations management.',
+      journey: 'Formed by USDP IT systems graduates, Macam Services addressed the regional market demand for 24/7 enterprise IT management. They built a robust service desk operation supporting clients locally and internationally.',
       services: ['Managed Network & IT Support', 'Website Hosting & Maintenance', 'System Administration', 'Digital Operations Management'],
-      impact: 'Supports regional businesses with modern IT infrastructure while providing steady local employment.'
+      impact: 'Ensures regional tech companies have enterprise-grade IT infrastructure support while creating steady local employment.'
     },
     {
       id: 'marketix_international',
       name: 'Marketix International',
       logo: marketix_international,
+      coverPhoto: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
       category: 'Digital Growth & Performance SEO',
       tagline: 'Driving global customer acquisition through technical SEO and growth marketing.',
       url: 'https://marketixinternational.com/',
-      founders: 'USDP Growth Marketing Alumni',
       district: 'Skardu',
-      metrics: [
-        { label: 'Ad Revenue Managed', value: '$1M+' },
-        { label: 'SEO Traffic Growth', value: '300%' },
-        { label: 'Global Clients', value: '25+' }
+      employeeCount: '15 Growth Strategists',
+      countriesServed: ['United States', 'Canada', 'United Kingdom', 'Australia', 'Saudi Arabia'],
+      founders: [
+        { name: 'Irfan Ullah', role: 'Head of Growth', photo: irfan },
+        { name: 'Hadi Hussain', role: 'Technical SEO Lead', photo: hadi_hussain }
       ],
-      overview: 'Marketix International is a data-driven performance marketing agency specializing in technical SEO, conversion rate optimization, and paid acquisition.',
-      journey: 'Graduating from USDP’s Digital Marketing & Performance SEO track, the founders established Marketix International to manage acquisition campaigns for international e-commerce brands.',
+      metrics: [
+        { label: 'Employees', value: '15 Strategists' },
+        { label: 'Ad Budget Managed', value: '$1M+' },
+        { label: 'SEO Traffic Growth', value: '300%' }
+      ],
+      overview: 'Marketix International is a performance marketing agency specializing in technical SEO audits, search engine marketing, GA4 tracking, and e-commerce acquisition.',
+      journey: 'After mastering growth analytics and search engine algorithms at USDP, Irfan Ullah and Hadi Hussain launched Marketix International. They systematically scaled organic traffic and return-on-ad-spend for international e-commerce brands.',
       services: ['Technical SEO Audits & Strategy', 'Google & Meta Paid Acquisition', 'GA4 Analytics & Funnel Optimization', 'Content Marketing Operations'],
-      impact: 'Generated over $1M+ in client ad performance, creating remote marketing and analytics jobs for mountain youth.'
+      impact: 'Managed over $1M+ in digital ad budgets for international clients, creating high-skill remote digital marketing careers.'
     },
     {
       id: 'northnine',
       name: 'Northnine',
       logo: northnine,
+      coverPhoto: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200',
       category: 'Mobile Studio & Web Engineering',
       tagline: 'Crafting premium iOS, Android, and web applications for global brands.',
       url: 'https://www.linkedin.com/company/the-north-nine/?originalSubdomain=pk',
-      founders: 'USDP Mobile Application Graduates',
       district: 'Ghizer',
-      metrics: [
-        { label: 'Apps Published', value: '20+' },
-        { label: 'Store Downloads', value: '100K+' },
-        { label: 'App Rating', value: '4.8 ★' }
+      employeeCount: '16 Mobile Developers',
+      countriesServed: ['United States', 'United Kingdom', 'Germany', 'United Arab Emirates'],
+      founders: [
+        { name: 'Naveed Iqbal', role: 'Founder & Mobile Lead', photo: naveed },
+        { name: 'Waseem Akram', role: 'Co-Founder & Backend Lead', photo: waseem }
       ],
-      overview: 'Northnine is a mobile application studio building user-centric Flutter, React Native, and web platforms for international clients.',
-      journey: 'Northnine was founded by USDP mobile application graduates who honed their skills on real client briefs during their training. Today, Northnine apps are used by thousands globally.',
+      metrics: [
+        { label: 'Employees', value: '16 Developers' },
+        { label: 'Apps Published', value: '20+' },
+        { label: 'Store Downloads', value: '100K+' }
+      ],
+      overview: 'Northnine is a mobile application studio building user-centric Flutter, iOS, Android, and web platforms for global brands.',
+      journey: 'Northnine was established by USDP mobile application graduates who built prototype mobile apps during their training. Today, Northnine’s mobile applications serve over 100,000+ active users across the App Store and Google Play.',
       services: ['Flutter & React Native Cross-Platform', 'iOS & Android Native Engineering', 'Mobile UI/UX Design', 'API & Backend Integration'],
-      impact: 'Elevates regional mobile engineering standards and proves mountain talent can launch top-rated App Store products.'
+      impact: 'Demonstrates that mobile app development talent from Gilgit-Baltistan can engineer top-rated, global mobile applications.'
     }
   ];
 
@@ -211,146 +288,208 @@ export function Startups() {
   // -------------------------------------------------------------
   if (activeStartup) {
     return (
-      <main className="relative min-h-screen bg-gray-50 py-10 lg:py-16">
-        {/* Background decoration */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden isolate z-0">
-          <svg className="absolute w-full h-full opacity-35" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
-            <path d="M 0,0 L 600,0 C 800,300 500,700 0,600 Z" fill="#E8DFF5" />
-            <path d="M 1440,900 L 800,900 C 1000,500 1200,300 1440,400 Z" fill="#E8DFF5" />
-          </svg>
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="relative min-h-screen bg-gray-50 pb-16">
+        
+        {/* Cover Photo Hero Banner */}
+        <div className="relative w-full h-64 sm:h-80 md:h-96 overflow-hidden bg-gray-900">
+          <img 
+            src={activeStartup.coverPhoto} 
+            alt={`${activeStartup.name} cover`}
+            className="w-full h-full object-cover opacity-60" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/40 to-transparent" />
           
-          {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-gray-500 mb-8 flex-wrap">
-            <Link to="/impact" className="hover:text-brand transition-colors">Impact</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
-            <Link to="/startups" className="hover:text-brand transition-colors">Startups</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
-            <span className="text-brand font-black">{activeStartup.name} Case Study</span>
+          {/* Top Breadcrumb Overlay */}
+          <div className="absolute top-6 left-0 right-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-white/90 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+              <Link to="/impact" className="hover:text-brand transition-colors">Impact</Link>
+              <ChevronRight className="w-3.5 h-3.5 text-white/60" />
+              <Link to="/startups" className="hover:text-brand transition-colors">Startups</Link>
+              <ChevronRight className="w-3.5 h-3.5 text-white/60" />
+              <span className="text-brand font-black">{activeStartup.name}</span>
+            </div>
           </div>
 
-          {/* Full Page Case Study Card Container */}
-          <div className="bg-white rounded-3xl border border-gray-200 shadow-lg p-6 sm:p-10 mb-10">
-            
-            {/* Header Hero Section */}
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-gray-100 pb-8 mb-8">
-              <div className="flex items-center gap-5">
-                <div className="flex h-24 w-40 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 p-4 shrink-0 shadow-xs">
-                  <img src={activeStartup.logo} alt={`${activeStartup.name} logo`} className="max-h-14 w-full object-contain" />
+          {/* Hero Startup Title Overlay */}
+          <div className="absolute bottom-6 left-0 right-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+            <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white p-3 shadow-2xl border-2 border-white flex items-center justify-center shrink-0">
+                  <img src={activeStartup.logo} alt={`${activeStartup.name} logo`} className="max-h-12 w-full object-contain" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                    <span className="bg-[#E8DFF5] text-[#574687] border border-[#b7a8d6] text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <span className="bg-brand text-white text-[10px] sm:text-xs font-bold px-3 py-0.5 rounded-full uppercase tracking-wider">
                       {activeStartup.category}
                     </span>
-                    <span className="text-xs font-bold text-gray-400">• {activeStartup.district} District</span>
+                    <span className="text-xs font-bold text-white/80">• {activeStartup.district} District</span>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
                     {activeStartup.name}
                   </h1>
-                  <p className="text-xs sm:text-sm font-bold text-brand mt-1">
-                    Founders: <span className="text-gray-700 font-semibold">{activeStartup.founders}</span>
-                  </p>
                 </div>
               </div>
 
-              {/* Top CTA */}
               {activeStartup.url && (
                 <a
                   href={activeStartup.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-hover transition-colors shadow-sm shrink-0"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-hover transition-colors shadow-lg shrink-0"
                 >
-                  Visit Official Site
+                  Visit Official Website
                   <ExternalLink className="w-4 h-4" />
                 </a>
               )}
             </div>
+          </div>
+        </div>
 
-            {/* Metrics Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-brand/5 border border-brand/20 rounded-2xl p-5 mb-10">
-              {activeStartup.metrics.map((metric, idx) => (
-                <div key={idx} className="text-center py-2 border-r last:border-0 border-brand/10">
-                  <div className="text-2xl sm:text-3xl font-black text-brand mb-0.5">{metric.value}</div>
-                  <div className="text-xs font-bold text-gray-600 uppercase tracking-wider">{metric.label}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Detailed Case Study Sections */}
-            <div className="space-y-8 text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
+        {/* Main Content Area */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            {/* Left Main Column (Case Study Details) */}
+            <div className="lg:col-span-2 space-y-8">
               
               {/* 1. Overview */}
-              <div className="bg-gray-50/80 p-6 rounded-2xl border border-gray-100">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-brand" /> 1. Company Executive Summary
-                </h3>
-                <p className="text-gray-800 leading-relaxed">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
+                  <Building2 className="w-4 h-4 text-brand" /> Company Overview
+                </h2>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
                   {activeStartup.overview}
                 </p>
               </div>
 
-              {/* 2. Journey */}
-              <div className="bg-gray-50/80 p-6 rounded-2xl border border-gray-100">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-brand" /> 2. The USDP Founding Journey
-                </h3>
-                <p className="text-gray-800 leading-relaxed">
+              {/* 2. Founders Section (Pictures & Roles) */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-6 flex items-center gap-2">
+                  <Users className="w-4 h-4 text-brand" /> Founders & Leadership Team
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {activeStartup.founders.map((founder, idx) => (
+                    <div key={idx} className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                      <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-md shrink-0 bg-gray-200">
+                        <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-black text-gray-900 leading-snug">{founder.name}</h3>
+                        <p className="text-xs font-bold text-brand">{founder.role}</p>
+                        <p className="text-[11px] text-gray-500 font-medium">USDP Graduate</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 3. The Founding Story */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4 text-brand" /> The USDP Founding Journey
+                </h2>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
                   {activeStartup.journey}
                 </p>
               </div>
 
-              {/* 3. Core Services */}
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-widest text-brand mb-4 flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-brand" /> 3. Core Products & Services Delivered
-                </h3>
+              {/* 4. Core Services Provided */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-4 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-brand" /> Core Services Provided
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {activeStartup.services.map((service, i) => (
-                    <div key={i} className="flex items-center gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-2xs text-xs sm:text-sm font-bold text-gray-900">
-                      <Award className="w-4 h-4 text-brand shrink-0" />
+                    <div key={i} className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl border border-gray-100 text-xs sm:text-sm font-bold text-gray-800">
+                      <span className="w-2 h-2 rounded-full bg-brand shrink-0" />
                       {service}
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* 4. Impact */}
-              <div className="bg-gray-50/80 p-6 rounded-2xl border border-gray-100">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
-                  <Users className="w-4 h-4 text-brand" /> 4. Regional & Economic Impact
-                </h3>
-                <p className="text-gray-800 leading-relaxed">
+              {/* 5. Regional & Economic Impact */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
+                  <Rocket className="w-4 h-4 text-brand" /> Regional & Economic Impact
+                </h2>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
                   {activeStartup.impact}
                 </p>
               </div>
 
             </div>
 
-            {/* Bottom Action Row */}
-            <div className="pt-8 mt-10 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <Link 
-                to="/startups"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-700 hover:text-brand transition-colors bg-gray-100 px-5 py-3 rounded-full"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Explore Other Startups
-              </Link>
+            {/* Right Sidebar Column (Key Metrics, Employees & Target Countries) */}
+            <div className="space-y-6">
               
-              {activeStartup.url && (
-                <a
-                  href={activeStartup.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold text-xs uppercase tracking-widest rounded-full hover:bg-brand-hover transition-colors shadow-sm"
+              {/* Employee Count & District Box */}
+              <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">
+                  Quick Facts & Scale
+                </h3>
+                
+                <div className="space-y-4">
+                  <div className="bg-brand/5 border border-brand/20 p-4 rounded-2xl flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-gray-500 uppercase">Team Size</div>
+                      <div className="text-xl font-black text-brand">{activeStartup.employeeCount}</div>
+                    </div>
+                    <Users className="w-8 h-8 text-brand opacity-80" />
+                  </div>
+
+                  <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-gray-500 uppercase">Headquarters</div>
+                      <div className="text-base font-black text-gray-900">{activeStartup.district} District</div>
+                    </div>
+                    <Building2 className="w-6 h-6 text-gray-400" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Target Countries Served */}
+              <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4 flex items-center gap-2">
+                  <Globe className="w-4 h-4 text-brand" /> Countries Served
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {activeStartup.countriesServed.map((country, idx) => (
+                    <span key={idx} className="inline-flex items-center gap-1.5 bg-gray-100 border border-gray-200 text-gray-800 text-xs font-bold px-3 py-1.5 rounded-full">
+                      <Globe2 className="w-3.5 h-3.5 text-brand" />
+                      {country}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Key Metrics Summary */}
+              <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">
+                  Key Metrics
+                </h3>
+                <div className="space-y-3">
+                  {activeStartup.metrics.map((metric, idx) => (
+                    <div key={idx} className="flex items-center justify-between border-b border-gray-100 pb-2.5 last:border-0 last:pb-0">
+                      <span className="text-xs font-bold text-gray-600 uppercase">{metric.label}</span>
+                      <span className="text-sm font-black text-brand">{metric.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Navigation Back */}
+              <div className="pt-2">
+                <Link 
+                  to="/startups"
+                  className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold rounded-2xl transition-colors text-xs uppercase tracking-wider"
                 >
-                  Visit Official Website
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              )}
+                  <ArrowLeft className="w-4 h-4" />
+                  Back to All Startups
+                </Link>
+              </div>
+
             </div>
 
           </div>
@@ -395,7 +534,7 @@ export function Startups() {
             USDP Alumni <span className="text-brand">Startups & Case Studies</span>
           </h1>
           <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-medium">
-            Explore the thriving tech ventures, software agencies, and digital consultancies launched by USDP alumni. Select any startup below to open its complete case study.
+            Explore the thriving tech ventures, software agencies, and digital consultancies launched by USDP alumni. Select any startup below to open its complete case study page.
           </p>
         </div>
 
@@ -405,31 +544,47 @@ export function Startups() {
             <Link
               key={startup.id}
               to={`/startups/${startup.id}`}
-              className="relative rounded-3xl bg-white border border-gray-200 p-6 shadow-sm hover:shadow-xl hover:border-brand/50 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group"
+              className="relative rounded-3xl bg-white border border-gray-200 p-6 shadow-sm hover:shadow-xl hover:border-brand/50 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden"
             >
               <div>
-                {/* Category Pill */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="bg-[#E8DFF5] text-[#574687] border border-[#b7a8d6] text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    {startup.category}
-                  </span>
-                  <span className="text-[11px] font-bold text-gray-400">
-                    {startup.district}
-                  </span>
+                {/* Mini Cover Header */}
+                <div className="h-32 -mx-6 -mt-6 mb-5 overflow-hidden relative bg-gray-100">
+                  <img src={startup.coverPhoto} alt={startup.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
+                    <span className="bg-brand text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                      {startup.category}
+                    </span>
+                    <span className="text-[11px] font-bold text-white">
+                      {startup.district}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Logo Box */}
-                <div className="flex h-20 w-full items-center justify-center rounded-2xl border border-gray-100 bg-gray-50/70 p-4 mb-5 group-hover:bg-brand/5 transition-colors">
-                  <img src={startup.logo} alt={`${startup.name} logo`} className="max-h-12 w-full object-contain" />
+                <div className="flex h-16 w-full items-center justify-center rounded-2xl border border-gray-100 bg-gray-50/70 p-3 mb-4 group-hover:bg-brand/5 transition-colors">
+                  <img src={startup.logo} alt={`${startup.name} logo`} className="max-h-10 w-full object-contain" />
                 </div>
 
                 {/* Name & Tagline */}
                 <h3 className="text-xl font-black text-gray-900 leading-tight mb-2 group-hover:text-brand transition-colors">
                   {startup.name}
                 </h3>
-                <p className="text-xs text-gray-600 leading-relaxed font-medium mb-6 line-clamp-2">
+                <p className="text-xs text-gray-600 leading-relaxed font-medium mb-4 line-clamp-2">
                   {startup.tagline}
                 </p>
+
+                {/* Founders Preview Row */}
+                <div className="flex items-center gap-2 pt-2 mb-4">
+                  <div className="flex -space-x-2">
+                    {startup.founders.map((f, idx) => (
+                      <img key={idx} src={f.photo} alt={f.name} className="w-7 h-7 rounded-full border-2 border-white object-cover" />
+                    ))}
+                  </div>
+                  <span className="text-[11px] font-bold text-gray-500">
+                    {startup.founders.map(f => f.name).join(', ')}
+                  </span>
+                </div>
               </div>
 
               {/* Action Button Indicator */}

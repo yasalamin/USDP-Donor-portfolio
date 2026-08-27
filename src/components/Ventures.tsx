@@ -148,7 +148,7 @@ export function Ventures() {
           <div className="mt-6 text-center pt-2">
             <Link
               to="/startups"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white font-bold text-xs sm:text-sm uppercase tracking-widest hover:bg-brand-hover transition-all duration-200 shadow-sm hover:shadow-md rounded-full group"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#574687] hover:bg-[#45376d] text-white font-bold text-xs sm:text-sm uppercase tracking-widest transition-all duration-200 shadow-sm hover:shadow-md rounded-full group"
             >
               Learn more about startups
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

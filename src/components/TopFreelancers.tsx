@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, CheckCircle2, Linkedin, Briefcase, Sparkles, MapPin } from 'lucide-react';
+import { Award, CheckCircle2, Linkedin, Sparkles, MapPin } from 'lucide-react';
 
 export function TopFreelancers() {
   const districts = ['Hunza', 'Ghizer', 'Gilgit', 'Skardu', 'Nager'];
@@ -7,7 +7,7 @@ export function TopFreelancers() {
   const [selectedDistrict, setSelectedDistrict] = useState('Hunza');
 
   const freelancers = [
-    // Hunza
+    // --- HUNZA (5 cards) ---
     {
       name: 'Khadija Bibi',
       title: 'UI/UX Product Designer',
@@ -15,7 +15,6 @@ export function TopFreelancers() {
       district: 'Hunza',
       badge: 'Top Rated',
       jobSuccess: '100%',
-      hoursBilled: '1,800+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300'
@@ -27,12 +26,45 @@ export function TopFreelancers() {
       district: 'Hunza',
       badge: 'Top Rated',
       jobSuccess: '100%',
-      hoursBilled: '1,400+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300'
     },
-    // Ghizer
+    {
+      name: 'Karim Khan',
+      title: 'Full-Stack React & Node Engineer',
+      track: 'Web Development',
+      district: 'Hunza',
+      badge: 'Top Rated Plus',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Amina Noor',
+      title: 'Design System & UI Specialist',
+      track: 'Product Design',
+      district: 'Hunza',
+      badge: 'Top Rated',
+      jobSuccess: '99%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Salman Ali',
+      title: 'Cloud Solutions & DevOps Specialist',
+      track: 'Cloud & System Engineering',
+      district: 'Hunza',
+      badge: 'Top Rated',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300'
+    },
+
+    // --- GHIZER (5 cards) ---
     {
       name: 'Sheryar Sher',
       title: 'Cloud & Azure Solutions Specialist',
@@ -40,7 +72,6 @@ export function TopFreelancers() {
       district: 'Ghizer',
       badge: 'Top Rated',
       jobSuccess: '99%',
-      hoursBilled: '1,200+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'
@@ -52,12 +83,45 @@ export function TopFreelancers() {
       district: 'Ghizer',
       badge: 'Top Rated',
       jobSuccess: '100%',
-      hoursBilled: '1,900+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300'
     },
-    // Gilgit
+    {
+      name: 'Farhan Ahmed',
+      title: 'Senior Frontend React Developer',
+      track: 'Frontend Engineering',
+      district: 'Ghizer',
+      badge: 'Top Rated Plus',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Samina Malik',
+      title: 'Technical SEO & GA4 Analytics Lead',
+      track: 'Digital Growth & Analytics',
+      district: 'Ghizer',
+      badge: 'Top Rated',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Nabeel Hassan',
+      title: 'Mobile App Engineer (Flutter & iOS)',
+      track: 'Mobile App Development',
+      district: 'Ghizer',
+      badge: 'Top Rated',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=300'
+    },
+
+    // --- GILGIT (6 cards) ---
     {
       name: 'Salim Ullah',
       title: 'Senior Full-Stack Developer',
@@ -65,7 +129,6 @@ export function TopFreelancers() {
       district: 'Gilgit',
       badge: 'Top Rated Plus',
       jobSuccess: '100%',
-      hoursBilled: '2,500+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300'
@@ -77,12 +140,56 @@ export function TopFreelancers() {
       district: 'Gilgit',
       badge: 'Top Rated',
       jobSuccess: '100%',
-      hoursBilled: '1,600+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300'
     },
-    // Skardu
+    {
+      name: 'Waqar Ahmed',
+      title: 'AI & Power BI Analytics Consultant',
+      track: 'Business Intelligence',
+      district: 'Gilgit',
+      badge: 'Top Rated',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Nazia Parveen',
+      title: 'UI/UX & Web Product Designer',
+      track: 'Product Design',
+      district: 'Gilgit',
+      badge: 'Top Rated',
+      jobSuccess: '99%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Tariq Hussain',
+      title: 'Senior Python & Data Engineer',
+      track: 'Data Engineering',
+      district: 'Gilgit',
+      badge: 'Top Rated Plus',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Anam Fatima',
+      title: 'Digital Marketing & Content Strategist',
+      track: 'Growth Marketing',
+      district: 'Gilgit',
+      badge: 'Top Rated',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300'
+    },
+
+    // --- SKARDU (5 cards) ---
     {
       name: 'Alia Hassan',
       title: 'AI Financial & Business Intelligence Analyst',
@@ -90,7 +197,6 @@ export function TopFreelancers() {
       district: 'Skardu',
       badge: 'Top Rated',
       jobSuccess: '100%',
-      hoursBilled: '1,500+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300'
@@ -102,12 +208,45 @@ export function TopFreelancers() {
       district: 'Skardu',
       badge: 'Top Rated',
       jobSuccess: '100%',
-      hoursBilled: '1,300+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300'
     },
-    // Nager
+    {
+      name: 'Hassan Raza',
+      title: 'Full-Stack Web & API Architect',
+      track: 'Web Engineering',
+      district: 'Skardu',
+      badge: 'Top Rated Plus',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Zainab Kazmi',
+      title: 'Product Designer & Wireframing Lead',
+      track: 'UI/UX Design',
+      district: 'Skardu',
+      badge: 'Top Rated',
+      jobSuccess: '99%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Murtaza Ali',
+      title: 'Technical SEO & Performance Growth Specialist',
+      track: 'Digital Growth',
+      district: 'Skardu',
+      badge: 'Top Rated',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=300'
+    },
+
+    // --- NAGER (5 cards) ---
     {
       name: 'Asif Ali',
       title: 'Growth Performance & Technical SEO Lead',
@@ -115,7 +254,6 @@ export function TopFreelancers() {
       district: 'Nager',
       badge: 'Top Rated',
       jobSuccess: '100%',
-      hoursBilled: '2,000+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300'
@@ -127,10 +265,42 @@ export function TopFreelancers() {
       district: 'Nager',
       badge: 'Top Rated',
       jobSuccess: '100%',
-      hoursBilled: '1,750+ hrs',
       upworkUrl: 'https://www.upwork.com/',
       linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Javed Iqbal',
+      title: 'React & Mobile Application Developer',
+      track: 'Software Engineering',
+      district: 'Nager',
+      badge: 'Top Rated Plus',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Shehnaz Begum',
+      title: 'UI/UX & Product Architect',
+      track: 'Product Design',
+      district: 'Nager',
+      badge: 'Top Rated',
+      jobSuccess: '100%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300'
+    },
+    {
+      name: 'Rashid Khan',
+      title: 'Data Analytics & Power BI Specialist',
+      track: 'Business Intelligence',
+      district: 'Nager',
+      badge: 'Top Rated',
+      jobSuccess: '99%',
+      upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300'
     }
   ];
 
@@ -221,9 +391,6 @@ export function TopFreelancers() {
                     <p className="text-[11px] text-gray-500 font-medium flex items-center gap-1">
                       <MapPin className="w-3 h-3 text-brand" />
                       <span>{freelancer.district}</span>
-                      <span className="text-gray-300 mx-0.5">•</span>
-                      <Briefcase className="w-3 h-3 text-gray-400" />
-                      <span>{freelancer.hoursBilled}</span>
                     </p>
                   </div>
                 </div>

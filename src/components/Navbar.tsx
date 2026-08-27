@@ -20,7 +20,7 @@ export function Navbar() {
 
   const searchablePages = [
     { name: 'Home', path: '/', keywords: 'home training skills' },
-    { name: 'Impact', path: '/impact', keywords: 'impact ventures alumni careers global reach videos' },
+    { name: 'Impact', path: '/impact', keywords: 'impact ventures alumni careers global reach videos upwork freelancers top rated independent talent' },
     { name: 'Programs', path: '/programs', keywords: 'programs courses learning training' },
     { name: 'Collaborations', path: '/collaborations', keywords: 'collaborations social development technology partners' },
     { name: 'About', path: '/about', keywords: 'about framework founder sustainable impact' },

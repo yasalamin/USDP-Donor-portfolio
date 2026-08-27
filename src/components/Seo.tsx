@@ -17,8 +17,8 @@ const metadataByPath: Record<string, PageMetadata> = {
   '/': defaultMetadata,
   '/impact': {
     title: 'Our Impact | uConnect Skill Development Program',
-    description: 'Explore USDP outcomes: trained professionals, alumni ventures, global digital careers, and the communities reached across Gilgit-Baltistan.',
-    keywords: 'USDP impact, uConnect alumni, Gilgit-Baltistan careers, digital employment, remote work, youth development'
+    description: 'Explore USDP outcomes: trained professionals, alumni ventures, Top Rated Upwork freelancers, global digital careers, and the communities reached across Gilgit-Baltistan.',
+    keywords: 'USDP impact, uConnect alumni, Gilgit-Baltistan careers, digital employment, remote work, Upwork freelancers, Top Rated talent'
   },
   '/programs': {
     title: 'Digital Skills Programs & Courses | USDP',

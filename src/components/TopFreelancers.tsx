@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, CheckCircle2, ExternalLink, Briefcase, Sparkles } from 'lucide-react';
+import { Award, CheckCircle2, Linkedin, Briefcase, Sparkles } from 'lucide-react';
 
 export function TopFreelancers() {
   const freelancers = [
@@ -11,6 +11,7 @@ export function TopFreelancers() {
       jobSuccess: '100%',
       hoursBilled: '2,500+ hrs',
       upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300'
     },
     {
@@ -21,6 +22,7 @@ export function TopFreelancers() {
       jobSuccess: '100%',
       hoursBilled: '1,800+ hrs',
       upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300'
     },
     {
@@ -31,6 +33,7 @@ export function TopFreelancers() {
       jobSuccess: '99%',
       hoursBilled: '1,200+ hrs',
       upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300'
     },
     {
@@ -41,6 +44,7 @@ export function TopFreelancers() {
       jobSuccess: '100%',
       hoursBilled: '1,500+ hrs',
       upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300'
     },
     {
@@ -51,6 +55,7 @@ export function TopFreelancers() {
       jobSuccess: '100%',
       hoursBilled: '2,000+ hrs',
       upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300'
     },
     {
@@ -61,6 +66,7 @@ export function TopFreelancers() {
       jobSuccess: '100%',
       hoursBilled: '1,600+ hrs',
       upworkUrl: 'https://www.upwork.com/',
+      linkedinUrl: 'https://www.linkedin.com/',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300'
     }
   ];
@@ -134,19 +140,29 @@ export function TopFreelancers() {
                 </div>
               </div>
 
-              {/* Upwork Profile Link Button */}
-              <a
-                href={freelancer.upworkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex justify-center items-center gap-2 w-full py-2.5 px-4 bg-brand/10 hover:bg-brand text-brand hover:text-white font-bold rounded-xl transition-all duration-200 uppercase tracking-wider text-xs shadow-none hover:shadow-md mt-2"
-              >
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-4.162 0-5.927 3.303-6.529 5.372-1.272-1.92-2.217-4.249-2.529-6.39h-3.03v7.355c0 1.956-1.586 3.542-3.542 3.542s-3.542-1.586-3.542-3.542v-7.355h-3.03v7.355c0 3.629 2.943 6.572 6.572 6.572 3.628 0 6.571-2.943 6.571-6.572v-1.745c.441 1.637 1.341 3.593 2.651 5.093l-1.634 7.742h3.117l1.094-5.188c.957.514 1.979.789 3.033.789 4.162 0 7.734-3.572 7.734-7.734s-3.572-7.734-7.734-7.734z" />
-                </svg>
-                View Upwork Profile
-                <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-              </a>
+              {/* Two Action Buttons: Upwork & LinkedIn */}
+              <div className="grid grid-cols-2 gap-2.5 mt-2">
+                <a
+                  href={freelancer.upworkUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center gap-1.5 py-2.5 px-3 bg-brand/10 hover:bg-brand text-brand hover:text-white font-bold rounded-xl transition-all duration-200 uppercase tracking-wider text-[11px] shadow-none hover:shadow-sm"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                    <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-4.162 0-5.927 3.303-6.529 5.372-1.272-1.92-2.217-4.249-2.529-6.39h-3.03v7.355c0 1.956-1.586 3.542-3.542 3.542s-3.542-1.586-3.542-3.542v-7.355h-3.03v7.355c0 3.629 2.943 6.572 6.572 6.572 3.628 0 6.571-2.943 6.571-6.572v-1.745c.441 1.637 1.341 3.593 2.651 5.093l-1.634 7.742h3.117l1.094-5.188c.957.514 1.979.789 3.033.789 4.162 0 7.734-3.572 7.734-7.734s-3.572-7.734-7.734-7.734z" />
+                  </svg>
+                  Upwork
+                </a>
+                <a
+                  href={freelancer.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center gap-1.5 py-2.5 px-3 bg-gray-100 hover:bg-[#0A66C2] text-gray-800 hover:text-white font-bold rounded-xl transition-all duration-200 uppercase tracking-wider text-[11px] shadow-none hover:shadow-sm"
+                >
+                  <Linkedin className="w-3.5 h-3.5 shrink-0" />
+                  LinkedIn
+                </a>
+              </div>
 
             </div>
           ))}

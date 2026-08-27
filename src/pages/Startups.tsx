@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Rocket, CheckCircle2, TrendingUp, Users, Building2, ChevronRight, Globe, Globe2 } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Rocket, CheckCircle2, TrendingUp, Users, Building2, ChevronRight, Globe, Globe2, Calendar, MapPin } from 'lucide-react';
 
 import alphalogix from '../assets/startups/alphalogix.png';
 import artilect from '../assets/startups/artilect.png';
@@ -39,6 +39,9 @@ type Startup = {
   tagline: string;
   url?: string;
   district: string;
+  headquarters?: string;
+  yearEstablished?: string;
+  operatingModel?: string;
   employeeCount: string;
   countriesServed: string[];
   founders: Founder[];
@@ -55,28 +58,39 @@ export function Startups() {
   const startups: Startup[] = [
     {
       id: 'alphalogix',
-      name: 'AlphaLogix',
+      name: 'TechAlpha Logix (AlphaLogix)',
       logo: alphalogix,
       coverPhoto: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200',
-      category: 'AI & Enterprise Software',
-      tagline: 'Delivering next-generation AI and custom software solutions for enterprise growth.',
+      category: 'Web Dev, Data Science & Blockchain',
+      tagline: 'Transforming digital ideas into reality through robust software engineering and sophisticated design.',
       url: 'https://techalphalogix.com/',
       district: 'Gilgit',
-      employeeCount: '14 Active Engineers',
-      countriesServed: ['United States', 'Germany', 'United Kingdom', 'United Arab Emirates'],
+      headquarters: 'Hamiya Market, Naveed Shaheed Road, Gilgit, Gilgit-Baltistan, Pakistan',
+      yearEstablished: '2019',
+      operatingModel: 'Full-service agency offering fixed-price, dedicated hiring, and on-site development models',
+      employeeCount: 'Over 20 Employees',
+      countriesServed: ['North America', 'Europe', 'Australia', 'Pakistan'],
       founders: [
-        { name: 'Ali Muhammad', role: 'Co-Founder & CEO', photo: ali_muhammad },
-        { name: 'Shoaib Ahmed', role: 'Co-Founder & CTO', photo: shoaib }
+        { name: 'Nadia Iqbal', role: 'CEO & Co-Founder (Technical Lead)', photo: jamila },
+        { name: 'Shaukat Hayat', role: 'COO & Co-Founder (Creative & Ops Lead)', photo: shoaib },
+        { name: 'Kashan Ghori', role: 'Full-Stack Developer', photo: ali_muhammad },
+        { name: 'Saima Dar', role: 'Full-Stack Developer', photo: jamila },
+        { name: 'Lubna Ali', role: 'UI/UX Designer', photo: jamila }
       ],
       metrics: [
-        { label: 'Employees', value: '14 Engineers' },
-        { label: 'Enterprise Clients', value: '15+' },
-        { label: 'YOY Growth', value: '200%' }
+        { label: 'Year Established', value: '2019' },
+        { label: 'Team Size', value: '20+ Employees' },
+        { label: 'Client Feedback', value: '5-Star Top-Rated' }
       ],
-      overview: 'AlphaLogix is a premier software development studio founded by USDP graduates specializing in AI integration, cloud-native web applications, and enterprise digital transformation.',
-      journey: 'Following intensive full-stack engineering and cloud architecture training at USDP, founders Ali Muhammad and Shoaib Ahmed joined forces to establish AlphaLogix. Starting with small remote contract deliverables, their commitment to production-grade clean code enabled them to secure multi-year contracts with enterprises in Europe and North America.',
-      services: ['Custom Web Application Development', 'AI Model Integration & APIs', 'Cloud Infrastructure & Microservices', 'UI/UX Product Architecture'],
-      impact: 'Employs 14 regional software engineers in Gilgit-Baltistan, generating direct foreign exchange earnings and establishing high-value tech employment in the mountains.'
+      overview: 'TechAlpha Logix (often operating under the brand name AlphaLogix) is a tech-based web development and design agency headquartered in Gilgit, Pakistan. The agency specializes in transforming digital ideas into reality through a combination of robust software engineering and sophisticated design. Positioning itself as a dedicated, fair-priced partner for businesses, TechAlpha Logix delivers end-to-end digital solutions ranging from SaaS and cloud computing to interactive UI/UX design.',
+      journey: 'TechAlpha Logix was established in 2019 with a vision to merge high-quality coding with striking visual communication. Nadia and Shaukat started the company with a small, highly skilled team, operating on the philosophy that "good communication is the heart of business." Over the years, the company expanded its capabilities far beyond standard web design, evolving to adopt modern stacks (React, Node.js, Firebase) and branching into advanced technological sectors like Data Science and Blockchain development to meet modern digital demands.',
+      services: [
+        'Development & Cloud: Custom web and mobile application development, CMS development (WordPress), and DevOps management for major cloud providers (GCP, Azure, AWS).',
+        'Design Solutions: Comprehensive UI/UX design, graphic design, visual communication, and brand development.',
+        'Data Science: Advanced data analytics, data visualization, and the integration of machine learning models and algorithms for business decision-making.',
+        'Blockchain Development: End-to-end blockchain management, smart contract creation (Solidity, Ethereum, Cardano), token development, and backend API integration.'
+      ],
+      impact: `Curbing Brain Drain: By providing cutting-edge jobs in fields like Data Science and Blockchain locally, the agency allows highly skilled IT graduates to build global careers without having to migrate to larger urban hubs like Islamabad or Lahore.\n\nEconomic Injection: As an IT export business serving international clients, the agency brings valuable foreign exchange directly into the local Gilgit economy.\n\nEcosystem Building: TechAlpha Logix serves as a pioneering model for the emerging tech ecosystem in Gilgit-Baltistan, proving that high-tier digital services and global tech entrepreneurship can successfully thrive in the region.`
     },
     {
       id: 'artilect',
@@ -324,7 +338,7 @@ export function Startups() {
                     </span>
                     <span className="text-xs font-bold text-white/80">• {activeStartup.district} District</span>
                   </div>
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+                  <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
                     {activeStartup.name}
                   </h1>
                 </div>
@@ -363,21 +377,20 @@ export function Startups() {
                 </p>
               </div>
 
-              {/* 2. Founders Section (Pictures & Roles) */}
+              {/* 2. Founders & Key Team Members */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
                 <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-6 flex items-center gap-2">
-                  <Users className="w-4 h-4 text-brand" /> Founders & Leadership Team
+                  <Users className="w-4 h-4 text-brand" /> Founders & Key Leadership Team
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {activeStartup.founders.map((founder, idx) => (
                     <div key={idx} className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                      <div className="w-16 h-16 rounded-2xl overflow-hidden border-2 border-white shadow-md shrink-0 bg-gray-200">
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden border-2 border-white shadow-md shrink-0 bg-gray-200">
                         <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover" />
                       </div>
                       <div>
                         <h3 className="text-base font-black text-gray-900 leading-snug">{founder.name}</h3>
                         <p className="text-xs font-bold text-brand">{founder.role}</p>
-                        <p className="text-[11px] text-gray-500 font-medium">USDP Graduate</p>
                       </div>
                     </div>
                   ))}
@@ -387,7 +400,7 @@ export function Startups() {
               {/* 3. The Founding Story */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
                 <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-brand" /> The USDP Founding Journey
+                  <TrendingUp className="w-4 h-4 text-brand" /> The Founding Journey
                 </h2>
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
                   {activeStartup.journey}
@@ -399,11 +412,11 @@ export function Startups() {
                 <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-4 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-brand" /> Core Services Provided
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3">
                   {activeStartup.services.map((service, i) => (
-                    <div key={i} className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl border border-gray-100 text-xs sm:text-sm font-bold text-gray-800">
-                      <span className="w-2 h-2 rounded-full bg-brand shrink-0" />
-                      {service}
+                    <div key={i} className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-100 text-xs sm:text-sm font-semibold text-gray-800 leading-relaxed">
+                      <span className="w-2 h-2 rounded-full bg-brand shrink-0 mt-1.5" />
+                      <div>{service}</div>
                     </div>
                   ))}
                 </div>
@@ -411,41 +424,63 @@ export function Startups() {
 
               {/* 5. Regional & Economic Impact */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
-                <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-3 flex items-center gap-2">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-brand mb-4 flex items-center gap-2">
                   <Rocket className="w-4 h-4 text-brand" /> Regional & Economic Impact
                 </h2>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
-                  {activeStartup.impact}
-                </p>
+                <div className="space-y-4">
+                  {activeStartup.impact.split('\n\n').map((paragraph, i) => (
+                    <div key={i} className="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-sm text-gray-800 leading-relaxed font-medium">
+                      {paragraph}
+                    </div>
+                  ))}
+                </div>
               </div>
 
             </div>
 
-            {/* Right Sidebar Column (Key Metrics, Employees & Target Countries) */}
+            {/* Right Sidebar Column (Key Metrics, Employees, HQ & Target Countries) */}
             <div className="space-y-6">
               
-              {/* Employee Count & District Box */}
+              {/* Quick Facts & Scale */}
               <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">
                   Quick Facts & Scale
                 </h3>
                 
-                <div className="space-y-4">
+                <div className="space-y-3.5">
                   <div className="bg-brand/5 border border-brand/20 p-4 rounded-2xl flex items-center justify-between">
                     <div>
                       <div className="text-xs font-bold text-gray-500 uppercase">Team Size</div>
-                      <div className="text-xl font-black text-brand">{activeStartup.employeeCount}</div>
+                      <div className="text-lg sm:text-xl font-black text-brand">{activeStartup.employeeCount}</div>
                     </div>
-                    <Users className="w-8 h-8 text-brand opacity-80" />
+                    <Users className="w-7 h-7 text-brand opacity-80" />
                   </div>
 
-                  <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex items-center justify-between">
-                    <div>
-                      <div className="text-xs font-bold text-gray-500 uppercase">Headquarters</div>
-                      <div className="text-base font-black text-gray-900">{activeStartup.district} District</div>
+                  {activeStartup.yearEstablished && (
+                    <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex items-center justify-between">
+                      <div>
+                        <div className="text-xs font-bold text-gray-500 uppercase">Year Established</div>
+                        <div className="text-base font-black text-gray-900">{activeStartup.yearEstablished}</div>
+                      </div>
+                      <Calendar className="w-6 h-6 text-gray-400" />
                     </div>
-                    <Building2 className="w-6 h-6 text-gray-400" />
-                  </div>
+                  )}
+
+                  {activeStartup.headquarters && (
+                    <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl">
+                      <div className="text-xs font-bold text-gray-500 uppercase mb-1 flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5 text-brand" /> Headquarters
+                      </div>
+                      <div className="text-xs font-bold text-gray-800 leading-snug">{activeStartup.headquarters}</div>
+                    </div>
+                  )}
+
+                  {activeStartup.operatingModel && (
+                    <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl">
+                      <div className="text-xs font-bold text-gray-500 uppercase mb-1">Operating Model</div>
+                      <div className="text-xs font-semibold text-gray-700 leading-snug">{activeStartup.operatingModel}</div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -467,7 +502,7 @@ export function Startups() {
               {/* Key Metrics Summary */}
               <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-sm">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">
-                  Key Metrics
+                  Key Performance Metrics
                 </h3>
                 <div className="space-y-3">
                   {activeStartup.metrics.map((metric, idx) => (

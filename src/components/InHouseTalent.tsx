@@ -26,10 +26,10 @@ export function InHouseTalent() {
     { name: 'uConnect', logo: '/Hiring/uconnect.jpg', url: 'https://uconnect.pk/' },
     { name: 'COLOGIXS', logo: '/Hiring/COLOGIXS.jpg' },
     { name: 'IMN', logo: '/Hiring/IMN.jpg' },
-    { name: 'Macam Services', logo: '/Hiring/Macam Services.jpg' },
+    { name: 'Macam Services', logo: '/Hiring/Macam Services.jpg', scaleClass: 'scale-125' },
     { name: 'SASI', logo: '/Hiring/SASI.png' },
-    { name: 'SDA Tech Hub', logo: '/Hiring/SDA Tech Hub.jpg' },
-    { name: 'uExcel', logo: '/Hiring/uExcel.jpg' },
+    { name: 'SDA Tech Hub', logo: '/Hiring/SDA Tech Hub.jpg', scaleClass: 'scale-130' },
+    { name: 'uExcel', logo: '/Hiring/uExcel.jpg', scaleClass: 'scale-130' },
     { name: 'Cloudlem', logo: '/Hiring/cloudlem.jpg', url: 'https://www.cloudlem.com/' },
     { name: 'Kohminds', logo: '/Hiring/kohminds.png', url: 'https://kohminds.com/' },
     { name: 'Artilect', logo: '/Hiring/artilect.png', url: 'https://artilectsolutions.com/' }
@@ -198,8 +198,14 @@ export function InHouseTalent() {
           </h3>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             {hiringPartners.map((partner) => {
-              const logo = <img src={partner.logo} alt={`${partner.name} logo`} className="max-h-12 w-full object-contain" />;
-              const className = "flex h-20 w-[calc(50%-6px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(16.666%-14px)] min-w-[140px] items-center justify-center rounded-xl border border-gray-200 bg-white p-3 transition-shadow hover:shadow-md";
+              const logo = (
+                <img 
+                  src={partner.logo} 
+                  alt={`${partner.name} logo`} 
+                  className={`max-h-14 sm:max-h-16 w-full object-contain transition-transform duration-300 ${partner.scaleClass || ''}`} 
+                />
+              );
+              const className = "flex h-20 w-[calc(50%-6px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(16.666%-14px)] min-w-[140px] items-center justify-center rounded-xl border border-gray-200 bg-white p-2.5 overflow-hidden transition-all hover:shadow-md hover:border-brand/40";
               return partner.url ? (
                 <a key={partner.name} href={partner.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${partner.name} website`} className={className}>{logo}</a>
               ) : (

@@ -38,7 +38,7 @@ const startupLogos = [
 
 export function Ventures() {
   return (
-    <section className="relative pt-2 pb-0 bg-white border-t border-gray-100 overflow-hidden isolate">
+    <section className="relative pt-10 sm:pt-12 lg:pt-16 pb-2 bg-white border-t border-gray-100 overflow-hidden isolate">
       {/* Background blobs recreated from Hero section */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <svg className="absolute w-full h-full opacity-60" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -35,6 +35,11 @@ const metadataByPath: Record<string, PageMetadata> = {
     description: 'Learn about uConnect Skill Development Program, our community-led framework, sustainable impact model, and mission to connect regional talent with opportunity.',
     keywords: 'about uConnect, USDP mission, social development technology, sustainable impact, Ejaz Karim'
   },
+  '/startups': {
+    title: 'USDP Alumni Startups & Case Studies | uConnect USDP',
+    description: 'Explore the founding journeys, tech products, and digital case studies of startups launched by uConnect Skill Development Program (USDP) alumni.',
+    keywords: 'USDP startups, alumni ventures, tech agencies Gilgit-Baltistan, software engineering startups, digital case studies'
+  },
   '/contact': {
     title: 'Contact uConnect | Skill Development & Partnership Enquiries',
     description: 'Contact uConnect about skill development, partnerships, hiring USDP talent, and opportunities to support digital careers in Gilgit-Baltistan.',

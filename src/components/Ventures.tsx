@@ -1,4 +1,5 @@
-import { Briefcase } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Briefcase, ArrowRight } from 'lucide-react';
 import { AnimatedCounter } from './AnimatedCounter';
 import ali_muhammad from '../assets/founders/ali_muhammad.jpg';
 import ehsaam_baig from '../assets/founders/ehsaam_baig.jpg';
@@ -141,6 +142,17 @@ export function Ventures() {
                 <div key={startup.name} className={className}>{logo}</div>
               );
             })}
+          </div>
+
+          {/* Learn More About Startups Button */}
+          <div className="mt-6 text-center pt-2">
+            <Link
+              to="/startups"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white font-bold text-xs sm:text-sm uppercase tracking-widest hover:bg-brand-hover transition-all duration-200 shadow-sm hover:shadow-md rounded-full group"
+            >
+              Learn more about startups
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </div>

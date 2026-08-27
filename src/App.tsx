@@ -6,6 +6,7 @@ import { About } from './pages/About';
 import { Programs } from './pages/Programs';
 import { Impact } from './pages/Impact';
 import { Collaborations } from './pages/Collaborations';
+import { Startups } from './pages/Startups';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Seo } from './components/Seo';
 import { Contact } from './pages/Contact';
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/programs" element={<Programs />} />
             <Route path="/impact" element={<Impact />} />
             <Route path="/collaborations" element={<Collaborations />} />
+            <Route path="/startups" element={<Startups />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>

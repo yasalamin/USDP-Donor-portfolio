@@ -91,28 +91,41 @@ export function Startups() {
     },
     {
       id: 'artilect',
-      name: 'Artilect',
+      name: 'Artilect Solutions',
       logo: artilect,
-      coverPhoto: 'https://images.unsplash.com/photo-1542744094-3a317272018a?auto=format&fit=crop&q=80&w=1200',
-      category: 'Digital Product Studio',
-      tagline: 'Designing and building scalable digital products for modern web and mobile.',
+      coverPhoto: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=1200',
+      category: 'Digital Innovation & Software Studio',
+      tagline: 'Designing, developing, and marketing custom digital products for startups and SMEs.',
       url: 'https://artilectsolutions.com/',
-      district: 'Hunza',
-      employeeCount: '10 Product Specialists',
-      countriesServed: ['Canada', 'United Kingdom', 'Netherlands', 'Saudi Arabia'],
+      district: 'Gilgit',
+      headquarters: 'Near Heaven Lodges, Sonikot, Jutial, Gilgit (15100), Pakistan',
+      yearEstablished: '2023',
+      operatingModel: 'Vetted dedicated tech teams (API-First, Full-Service Digital Transformation)',
+      employeeCount: '50–249 Members',
+      countriesServed: ['Germany & Europe', 'North America (USA, Canada)', 'Pakistan', 'Global Digital Marketplace'],
       founders: [
-        { name: 'Jamila Bibi', role: 'Co-Founder & Head of Product', photo: jamila },
-        { name: 'Ehsaam Baig', role: 'Co-Founder & UX Lead', photo: ehsaam_baig }
+        { name: 'Masroor Ali Khan', role: 'Lead Full-Stack Developer', photo: masroor_ali_khan },
+        { name: 'Saeed Hussain', role: 'Lead Full-Stack Developer', photo: shoaib },
+        { name: 'Zubair Iqbal', role: 'Lead Full-Stack Developer', photo: zubair },
+        { name: 'Karishma Sultan', role: 'Lead UX/UI Designer', photo: jamila },
+        { name: 'Nouman Karim', role: 'Mobile App & Flutter Flow Developer', photo: naveed },
+        { name: 'Waqas Jan', role: 'SEO & Digital Marketing Expert', photo: irfan }
       ],
       metrics: [
-        { label: 'Employees', value: '10 Designers' },
-        { label: 'Projects Delivered', value: '40+' },
-        { label: 'Client Retention', value: '95%' }
+        { label: 'Year Established', value: '2023' },
+        { label: 'Projects Delivered', value: '62+ Delivered' },
+        { label: 'Directory Rating', value: '4.3 to 5.0 Stars' }
       ],
-      overview: 'Artilect is a digital product agency focused on crafting intuitive user experiences, scalable web applications, and end-to-end design systems for global tech startups.',
-      journey: 'Graduating from USDP’s UI/UX design and front-end development bootcamps, Jamila Bibi and Ehsaam Baig realized international clients needed design systems coupled with tight technical execution. They launched Artilect, quickly scaling to serve clients across 4 continents.',
-      services: ['Figma UI/UX Design Systems', 'Full-Stack React & Node Apps', 'SaaS Product Engineering', 'Performance Optimization'],
-      impact: 'Provides high-paying remote careers for mountain youth and female designers, leading local digital product design standards.'
+      overview: 'Artilect Solutions is a digital innovation and software development agency headquartered in Gilgit, Pakistan. The firm specializes in helping startups and SMEs navigate the digital transformation journey by designing, developing, and marketing custom digital products. Operating on a model that merges advanced technology with strategic business insight, Artilect Solutions matches clients with highly vetted tech teams to deliver secure, scalable, and user-centric applications.',
+      journey: 'Established recently in 2023, Artilect Solutions was founded on the vision of becoming a globally trusted partner for software innovation and design excellence. The agency was built to bridge the gap between brilliant business ideas and the technical execution required to bring them to life. By adopting an API-first approach and utilizing modern frameworks like Next.js and Flutter, the firm quickly scaled its operations to handle complex projects—from intricate Fintech applications to enterprise-level electronic notification systems—within its first few years of operation.',
+      services: [
+        'Web Development: Designing and launching secure, SEO-ready web applications with fast frontends and API-first backends (React, Next.js, Vue.js, Node.js, Laravel).',
+        'Mobile App Development: Building cross-platform iOS and Android applications using a single codebase (primarily Flutter & FlutterFlow) with native feel and offline modes.',
+        'UI/UX Design: Transforming goals into high-conversion interfaces via rapid discovery, wireframing, polished UI, and developer-ready Figma design systems.',
+        'Digital Marketing: Driving qualified traffic through technical SEO, content generation, paid campaigns, and Conversion Rate Optimization (CRO).',
+        'Notable Products Built: "RASD Pay" (Corporate Fintech Expense App), "Sulah" (Fitness Tracking App), and Custom Electronic Notification Systems.'
+      ],
+      impact: `Combating Brain Drain: By establishing a robust tech agency in Jutial, the company provides lucrative, world-class software engineering and design opportunities to local talent, allowing them to thrive without migrating to larger cities like Islamabad or Karachi.\n\nGlobal Connectivity: The agency connects local talent with international clients and modern global tech stacks, elevating the skill level of the regional workforce.\n\nEconomic Growth: Operating as a digital exporter, Artilect Solutions brings foreign capital directly into the Gilgit economy, proving that high-tier digital services and tech entrepreneurship can successfully scale from remote geographical locations.`
     },
     {
       id: 'asiandevs',
@@ -307,6 +320,9 @@ export function Startups() {
             src={activeStartup.coverPhoto} 
             alt={`${activeStartup.name} cover`}
             className="w-full h-full object-cover opacity-60" 
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200';
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/40 to-transparent" />
           
@@ -581,7 +597,14 @@ export function Startups() {
               <div>
                 {/* Mini Cover Header */}
                 <div className="h-32 -mx-6 -mt-6 mb-5 overflow-hidden relative bg-gray-100">
-                  <img src={startup.coverPhoto} alt={startup.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90" />
+                  <img 
+                    src={startup.coverPhoto} 
+                    alt={startup.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200';
+                    }}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
                     <span className="bg-brand text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">

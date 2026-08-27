@@ -86,13 +86,13 @@ export function TopFreelancers() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 bg-brand text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 mb-3 rounded-full shadow-xs">
-            <Sparkles className="w-3.5 h-3.5" /> Upwork Top-Rated Talent
+            <Sparkles className="w-3.5 h-3.5" /> Verified Global Talent
           </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-black tracking-tight mb-3 uppercase">
-            Top-Rated Freelancers & <span className="text-brand">Independent Pioneers</span>
+            Top-Rated <span className="text-brand">Upwork Talent</span> & Remote Tech Professionals
           </h2>
           <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium max-w-2xl mx-auto">
-            Equipping trainees to thrive on global marketplaces. USDP graduates build high-reputation freelance businesses, maintaining 100% Job Success Scores and delivering high-value contracts for clients worldwide.
+            Empowering regional talent to compete on leading global freelance marketplaces. Graduates of the uConnect Skill Development Program (USDP) maintain Top-Rated status and 100% Job Success Scores on Upwork—delivering enterprise software engineering, UI/UX design, cloud architecture, and digital growth services to clients across North America, Europe, and the Middle East.
           </p>
         </div>
 

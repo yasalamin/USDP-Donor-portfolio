@@ -29,7 +29,10 @@ export function InHouseTalent() {
     { name: 'Macam Services', logo: '/Hiring/Macam Services.jpg' },
     { name: 'SASI', logo: '/Hiring/SASI.png' },
     { name: 'SDA Tech Hub', logo: '/Hiring/SDA Tech Hub.jpg' },
-    { name: 'uExcel', logo: '/Hiring/uExcel.jpg' }
+    { name: 'uExcel', logo: '/Hiring/uExcel.jpg' },
+    { name: 'Cloudlem', logo: '/Hiring/cloudlem.jpg', url: 'https://www.cloudlem.com/' },
+    { name: 'Kohminds', logo: '/Hiring/kohminds.png', url: 'https://kohminds.com/' },
+    { name: 'Artilect', logo: '/Hiring/artilect.png', url: 'https://artilectsolutions.com/' }
   ];
 
   const sendYoutubeCommand = (videoId: string, func: string, args: unknown[] = []) => {
@@ -193,10 +196,10 @@ export function InHouseTalent() {
           <h3 className="mb-5 text-center text-sm font-bold uppercase tracking-[0.2em] text-gray-500">
             Partners Actively Hiring from USDP
           </h3>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             {hiringPartners.map((partner) => {
               const logo = <img src={partner.logo} alt={`${partner.name} logo`} className="max-h-12 w-full object-contain" />;
-              const className = "flex h-20 items-center justify-center rounded-xl border border-gray-200 bg-white p-3 transition-shadow hover:shadow-md";
+              const className = "flex h-20 w-[calc(50%-6px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(16.666%-14px)] min-w-[140px] items-center justify-center rounded-xl border border-gray-200 bg-white p-3 transition-shadow hover:shadow-md";
               return partner.url ? (
                 <a key={partner.name} href={partner.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${partner.name} website`} className={className}>{logo}</a>
               ) : (
